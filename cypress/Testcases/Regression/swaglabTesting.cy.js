@@ -83,5 +83,20 @@ describe('Testing the website with the cypress', () => {
         //Finish the purchase process
         cy.get('button[id="finish"]').click();
 
+        //Click on the go to home button
+        //cy.request('#back-to-products').click();
+        cy.get('#back-to-products').click();
+
+        //click on the more options button(three horizontal lines)
+        cy.get('#react-burger-menu-btn').click();
+
+        //Click on the close button
+        cy.get('div.bm-cross-button').click();
+
+        //click on the more options button(three horizontal lines)
+        cy.get('#react-burger-menu-btn').click();
+
+        //click on the logout button
+        cy.get("nav[class='bm-item-list'] >a#logout_sidebar_link").click();
     })
 })
