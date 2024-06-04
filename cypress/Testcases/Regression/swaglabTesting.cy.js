@@ -32,9 +32,15 @@ describe('Testing the website with the cypress', () => {
         cy.get('input[type="submit"]').click();
 
         //aaertion the title of the product page
-        cy.get('span.title').should('contain', 'Products');
+        cy.get('span.title').should('have.text', 'Products');
 
-        cy.get('span.select_container').click();
+        //cy.get('span.select_container').click();
+
+        //Selecting the option from the drop down
+        cy.get("span[class='select_container'] > select[class='product_sort_container']").select('Price (low to high)');
+
+        cy.get("span[class='select_container'] > select[class='product_sort_container']").select(1);
+
         //cy.wait(5000);
         cy.get('button[class="btn btn_primary btn_small btn_inventory "]').eq(3).click();
 
