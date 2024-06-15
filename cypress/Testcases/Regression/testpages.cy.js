@@ -18,6 +18,21 @@ describe('Testing the Testpages website', () => {
         cy.get("li[id='ember99']").click();
         cy.get("li[id='ember103']").click();
 
+        //Check action on the Name check box and unchecking
+
+        // Stub the window.open method
+        cy.window().then((win) => {
+            cy.stub(win, 'open').as('windowOpen');
+        });
+
+        cy.get("a[class='nav-link pe-2']").click();
+
+        cy.get("input[class='ember-checkbox ember-view form-check-input']").first().check();
+
+        cy.get("input[class='ember-checkbox ember-view form-check-input']").eq(5).check();
+
+        //cy.get("input[class='ember-checkbox ember-view form-check-input']").uncheck();
+
     })
 
 })
